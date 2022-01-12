@@ -1,0 +1,6 @@
+<mat-list class="mod-slider">
+  <mat-list-item *ngFor="let item of menus"
+    ><a routerLink="{{ item.path }}"
+      ><fa-icon size="2x" [icon]="item.icon"></fa-icon></a
+  ></mat-list-item>
+</mat-list>

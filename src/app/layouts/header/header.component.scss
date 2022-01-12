@@ -1,0 +1,36 @@
+@import "../../../assets/theme.scss";
+.mat-toolbar-multiple-rows {
+  min-height: 30px !important;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99;
+  background-color: $brand-core-orange;
+  .mat-toolbar-row {
+    height: 50px !important;
+    width: 100vw;
+    .example-spacer {
+      flex: 1 1 auto;
+    }
+  }
+}
+.mod-menu-action {
+  text-align: center;
+  margin-top: 5px;
+  .button-round {
+    border-radius: 20px;
+    border: 1px solid #000;
+    color: #000;
+    padding: 0.2rem 0.9rem;
+    transition: all 0.4s;
+  }
+}
+
+.mod-menu {
+  padding: 0 0.4rem;
+
+  &-header {
+    display: flex;
+    gap: 10px;
+  }
+}

@@ -1,0 +1,34 @@
+<div class="mod-search">
+  <h1 class="headline size-0">{{ title }}</h1>
+  <div class="mod-search-form">
+    <form (ngSubmit)="handlSearch(valueSearch.value)">
+      <input
+        type="text"
+        #valueSearch
+        placeholder="search"
+        class="forminput addIcon"
+      />
+      <span
+        class="iconify iconserch"
+        data-icon="bytesize:search"
+        style="color: dimgray"
+        data-width="23"
+        data-height="23"
+      ></span>
+    </form>
+
+    <button class="button bg-second" (click)="OpenModalAdd()">Add</button>
+    <button
+      class="button bg-remove"
+      (click)="valueSearch.value = ''; handlSearch('')"
+    >
+      <span
+        class="iconify"
+        data-icon="ic:round-restart-alt"
+        style="color: white"
+        data-width="25"
+        data-height="25"
+      ></span>
+    </button>
+  </div>
+</div>

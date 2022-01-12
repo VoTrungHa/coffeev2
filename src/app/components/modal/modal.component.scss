@@ -1,0 +1,27 @@
+@import "../../../assets/theme.scss";
+
+.mod-modal {
+  width: 450px;
+  height: 100%;
+  overflow: hidden;
+  box-sizing: padding-box;
+
+  &-title {
+    background-color: rgba(253, 160, 38, 0.96);
+    padding: 0.5rem 1.2rem;
+    h2 {
+      font-family: NotoSerif;
+      font-weight: 500;
+    }
+  }
+  &-body {
+    padding: 1rem 1.2rem;
+  }
+  &-action {
+    padding: 0.5rem 1.2rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.125);
+    display: flex;
+    justify-content: end;
+    gap: 8px;
+  }
+}

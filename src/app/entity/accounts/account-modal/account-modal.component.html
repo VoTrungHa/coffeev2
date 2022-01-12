@@ -1,0 +1,121 @@
+<div class="mod-modal">
+  <div class="mod-modal-title">
+    <h2>{{ data.title }}</h2>
+  </div>
+  <div class="mod-modal-body">
+    <form [formGroup]="AccountForm">
+      <div class="form-group">
+        <label class="form-label" for="name">Email</label>
+        <div class="form-control-input">
+          <input
+            type="email"
+            class="forminput"
+            formControlName="email"
+            placeholder="example@example.com"
+            required
+          />
+          <div *ngIf="email?.errors && isValidator" class="alert alert-danger">
+            <div *ngIf="email?.errors?.['required']">
+              Địa chỉ email còn trống
+            </div>
+            <div *ngIf="email?.errors?.['email']">
+              Địa chi email không hợp lệ
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group mt-15">
+        <label class="form-label" for="name">Name</label>
+        <div class="form-control-input">
+          <input
+            type="text"
+            id="name"
+            placeholder="Nguyễn Văn A"
+            class="forminput"
+            formControlName="nickName"
+            required
+          />
+          <div
+            *ngIf="nickName?.errors && isValidator"
+            class="alert alert-danger"
+          >
+            <div *ngIf="nickName?.errors?.['required']">
+              Nhập Họ tên của bạn
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group mt-15">
+        <label class="form-label">Gender</label>
+        <div class="form-control-input mt-5">
+          <input
+            type="radio"
+            value="Nam"
+            name="gender"
+            formControlName="gender"
+          />
+          Male
+          <input
+            type="radio"
+            name="gender"
+            formControlName="gender"
+            value="Nữ"
+          />
+          Female
+          <div *ngIf="gender?.errors && isValidator" class="alert alert-danger">
+            <div *ngIf="gender?.errors?.['required']">Chọn giới tính</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group mt-15">
+        <label class="form-label">Role</label>
+        <div class="form-control-input mt-5">
+          <select id="lop" class="forminput" formControlName="role">
+            <option *ngFor="let rol of ROLES" [value]="rol">
+              {{ rol }}
+            </option>
+          </select>
+          <div *ngIf="role?.errors && isValidator" class="alert alert-danger">
+            <div *ngIf="role?.errors?.['required']">Chọn chức vụ</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group mt-15">
+        <label class="form-label">Phone</label>
+        <div class="form-control-input mt-5">
+          <input
+            type="text"
+            placeholder=""
+            class="forminput"
+            formControlName="phone"
+            required
+          />
+          <div *ngIf="phone?.errors && isValidator" class="alert alert-danger">
+            <div *ngIf="phone?.errors?.['required']">Nhập số điện thoại</div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group d-flex flex-end mt-15">
+        <button class="button bg-remove" (click)="close()" type="button">
+          Cancel
+        </button>
+        <button
+          class="button bg-second"
+          (click)="
+            email?.errors ||
+            nickName?.errors ||
+            phone?.errors ||
+            role?.errors ||
+            gender?.errors
+              ? setValidator()
+              : save()
+          "
+        >
+          Ok
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

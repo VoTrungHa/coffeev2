@@ -1,0 +1,18 @@
+<div class="mod-account">
+  <app-search
+    (modal)="openDialog($event)"
+    (search)="handlSearch($event)"
+    [title]="'ACCOUNT MANAGEMENT'"
+  ></app-search>
+  <div class="mod-account-body">
+    <app-apptable
+      [data]="Accounts"
+      [params]="params"
+      (modal)="openDialog($event)"
+      (paramsChange)="paramsChange($event)"
+      (sortAll)="sortAll($event)"
+      [CONTENTS_LIST_WIDTH]="CONTENTS_LIST_WIDTH"
+      (delete)="handlDeleteAccount($event)"
+    ></app-apptable>
+  </div>
+</div>

@@ -1,0 +1,76 @@
+<div class="mod-modal">
+  <div class="mod-modal-title">
+    <h2>{{ data.title }}</h2>
+  </div>
+  <div class="mod-modal-body">
+    <form [formGroup]="ProductForm">
+      <div class="form-group">
+        <label class="form-label" for="name">Name</label>
+        <div class="form-control-input">
+          <input
+            type="text"
+            class="forminput"
+            formControlName="email"
+            placeholder="Tên sản phẩm"
+            required
+          />
+          <div *ngIf="name?.errors && isValidator" class="alert alert-danger">
+            <div *ngIf="name?.errors?.['required']">Địa chỉ name còn trống</div>
+            <div *ngIf="name?.errors?.['name']">Địa chi name không hợp lệ</div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group mt-15">
+        <label class="form-label">Category</label>
+        <div class="form-control-input">
+          <select ng-model="data.category" class="forminput" required>
+            <option value="">Chọn loại sản phẩm</option>
+            <option *ngFor="let item of Categorys" value="{{ item }}">
+              {{ item }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group mt-15">
+        <label class="form-label">Attributes</label>
+        <div class="gap-8 d-flex form-control-input">
+          <div>
+            <select ng-model="data.category" class="forminput" required>
+              <option value="">Chọn loại sản phẩm</option>
+              <option *ngFor="let item of Categorys" value="{{ item }}">
+                {{ item }}
+              </option>
+            </select>
+          </div>
+          <div>
+            <input
+              type="text"
+              class="forminput"
+              formControlName="email"
+              placeholder="Tên sản phẩm"
+              required
+            />
+          </div>
+          <div>
+            <button class="button bg-remove">
+              <span
+                class="iconify"
+                data-icon="bpmn:trash"
+                style="color: white"
+                data-width="18"
+                data-height="18"
+              ></span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="form-group d-flex flex-end mt-15">
+        <button class="button bg-remove" type="button" (click)="close()">
+          Cancel
+        </button>
+        <button class="button bg-second" (click)="save()">Ok</button>
+      </div>
+    </form>
+  </div>
+</div>

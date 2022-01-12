@@ -1,0 +1,85 @@
+<mat-card>
+  <table class="mod-table">
+    <thead class="mod-table-header">
+      <tr>
+        <th
+          *ngFor="let item of CONTENTS_LIST_WIDTH"
+          [ngStyle]="{ width: item.width, 'min-width': item.width }"
+          class="mod-table-col"
+        >
+          {{ item.name }}
+          <span ng-if="item.key" (click)="sortName(item.key)">
+            <span
+              class="iconify cursor"
+              data-icon="fa-solid:sort"
+              data-width="14"
+              data-height="14"
+            ></span>
+          </span>
+        </th>
+        <th
+          class="mod-table-col"
+          [ngStyle]="{ width: '160px', 'min-width': '160px' }"
+        >
+          Action
+        </th>
+      </tr>
+    </thead>
+    <tbody *ngIf="data">
+      <tr
+        *ngFor="
+          let item of data
+            | paginate
+              : {
+                  id: 'server',
+                  itemsPerPage: params.limit,
+                  currentPage: params.current_page,
+                  totalItems: params.total_records
+                }
+            | sort: { key: params.sort, reverse: params.reverse };
+          let i = index
+        "
+      >
+        <td class="mod-table-col" *ngFor="let name of CONTENTS_LIST_WIDTH">
+          <div *ngIf="name.key === 'image'" class="text-center avatar">
+            <img
+              [src]="item[name.key]"
+              width="100%"
+              height="100%"
+              [alt]="'logo'"
+            />
+          </div>
+          <span *ngIf="name.key !== 'image'">
+            {{ item[name.key] }}
+          </span>
+        </td>
+        <td class="flex-center d-flex gap-8">
+          <button class="bg-default button" (click)="OpenModal(item.id)">
+            <span
+              class="iconify"
+              data-icon="akar-icons:edit"
+              data-width="20"
+              data-height="20"
+            ></span>
+          </button>
+          <button class="bg-remove button" (click)="handlDelete(item.id)">
+            <span
+              class="iconify"
+              data-icon="fluent:delete-28-filled"
+              data-width="20"
+              data-height="20"
+            ></span>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</mat-card>
+<mat-paginator
+  #paginator
+  [pageSize]="params.limit"
+  [length]="params.total_records"
+  [pageIndex]="params.current_page - 1"
+  (page)="handlePage($event)"
+>
+</mat-paginator>

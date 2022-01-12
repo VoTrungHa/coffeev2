@@ -1,0 +1,18 @@
+<div class="mod-coffee">
+  <app-search
+    (modal)="openDialog($event)"
+    (search)="handlSearch($event)"
+    [title]="'PRODUCT MANAGEMENT'"
+  ></app-search>
+  <div class="mod-coffee-body">
+    <app-apptable
+      [data]="Products"
+      [params]="params"
+      (modal)="openDialog($event)"
+      (paramsChange)="paramsChange($event)"
+      (sortAll)="sortAll($event)"
+      [CONTENTS_LIST_WIDTH]="CONTENTS_LIST_WIDTH"
+      (delete)="handlDeleteAccount($event)"
+    ></app-apptable>
+  </div>
+</div>

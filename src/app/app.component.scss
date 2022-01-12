@@ -1,0 +1,14 @@
+.mod-main {
+  display: block;
+  position: relative;
+  &-body {
+    position: absolute;
+    margin-bottom: 350px;
+    padding: 0 24px;
+    right: 0;
+    bottom: 0;
+    top: 100px;
+    width: calc(100% - 120px);
+    min-height: 100%;
+  }
+}

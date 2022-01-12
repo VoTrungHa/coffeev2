@@ -1,0 +1,19 @@
+.mod-slider {
+  position: fixed;
+  top: 50px;
+  bottom: 0;
+  padding-top: 20px;
+  left: 0;
+  z-index: 100;
+  display: block;
+  overflow: hidden;
+  background-color: rgba(221, 220, 220, 0.96);
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+  a {
+    color: #616161;
+    transition: all 0.4s;
+    &:hover {
+      color: #909090;
+    }
+  }
+}

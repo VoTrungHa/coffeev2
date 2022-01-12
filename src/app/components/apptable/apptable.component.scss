@@ -1,0 +1,36 @@
+.mat-card {
+  overflow: auto;
+  .mod-table {
+    width: 100%;
+    overflow: auto;
+    .mod-table-header {
+      background: #ffe7e7;
+      border-radius: 6px;
+      tr th {
+        font-weight: 500;
+        padding: 11px 10px;
+      }
+    }
+    tbody tr td,
+    th {
+      border-bottom: 1px solid rgb(253, 241, 241);
+    }
+    tbody tr:last-child td,
+    th {
+      border-bottom: none;
+    }
+    .mod-table-col {
+      box-sizing: border-box;
+      padding: 0.5rem;
+      text-align: center;
+      font-size: 13px;
+      font-weight: normal;
+    }
+  }
+}
+.col-table {
+  width: 120px;
+}
+.mat-paginator-container {
+  justify-content: space-between !important;
+}

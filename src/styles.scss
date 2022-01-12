@@ -1,1 +1,170 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 16px;
+  background-color: #f7f7f7 !important;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+span,
+div,
+p {
+  overflow-wrap: break-word;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 0 !important;
+}
+.mat-dialog-container {
+  padding: 0 !important;
+}
+
+.headline {
+  margin: 0;
+  word-break: break-word;
+  font-weight: bold !important;
+  line-height: 1.5;
+  font-family: NotoSerif !important;
+}
+.size-0 {
+  font-size: 23px !important;
+}
+.size-1 {
+  font-size: 20px;
+}
+.size-2 {
+  font-size: 18px !important;
+}
+.size-3 {
+  font-size: 16px !important;
+}
+.size-4 {
+  font-size: 14px;
+}
+.size-5 {
+  font-size: 12px;
+}
+.avatar {
+  position: relative;
+  flex-shrink: 0;
+  width: 35px;
+  height: 35px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 50%;
+}
+img {
+  object-fit: cover;
+}
+.toast-title {
+  font-size: 13px;
+}
+
+.d-flex {
+  display: flex;
+}
+.gap-8 {
+  gap: 8px;
+}
+.flex-center {
+  justify-content: center;
+}
+.flex-end {
+  justify-content: end;
+}
+.forminput {
+  width: -webkit-fill-available;
+  padding: 4px 12px;
+  margin: 0;
+  overflow: hidden;
+  font: inherit;
+  font-size: 14px;
+  letter-spacing: inherit;
+  cursor: text;
+  background: none;
+  border: 1px solid rgba(0, 0, 0, 0.23);
+  border-radius: 4px;
+  outline: 0;
+  -webkit-tap-highlight-color: transparent;
+  &:focus {
+    border-color: #66afe9;
+    box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%), 0 0 8px rgb(102 175 233 / 60%);
+  }
+}
+.form-label {
+  padding-top: 5px;
+  display: inline-block;
+  font-weight: 700;
+  width: 75px;
+}
+
+.form-control-input {
+  width: 100%;
+  .alert-danger {
+    color: rgb(255, 0, 0);
+  }
+}
+.mt-15 {
+  margin-top: 15px;
+}
+.mt-5 {
+  margin-top: 5px;
+}
+.form-group {
+  display: flex;
+  gap: 12px;
+}
+.button {
+  display: inline-block;
+  flex-shrink: 0;
+  padding: 0.1rem 0.3rem;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 14px;
+  text-decoration: none;
+  cursor: pointer;
+  background: transparent;
+  border: 1px solid transparent;
+  outline: none;
+}
+.bg-default {
+  background-color: rgb(255, 153, 0);
+  color: #fff;
+  &:hover {
+    background-color: rgb(231, 174, 60);
+  }
+}
+.bg-second {
+  background-color: rgb(46, 174, 248);
+  color: #fff;
+  &:hover {
+    background-color: rgb(117, 216, 247);
+  }
+}
+.bg-remove {
+  background-color: rgb(252, 13, 13);
+  color: #fff;
+  &:hover {
+    background-color: rgb(245, 94, 94);
+  }
+}
+.text-center {
+  text-align: center;
+}
+.addIcon {
+  padding-left: 2.2rem;
+}
+.mat-menu-panel {
+  width: 140px;
+  margin-top: 7px;
+}
+.cursor {
+  cursor: pointer;
+}
