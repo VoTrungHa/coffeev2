@@ -66,19 +66,19 @@ export class CoffeesComponent implements OnInit {
     dialogConfig.hasBackdrop = false;
     const dialogRef = this.dialog.open(CoffeeModalComponent, dialogConfig);
     dialogRef.afterClosed().subscribe((data) => {
-      // if (id && data) {
-      //   this.coffeeService.updateProduct(data).subscribe((result) => {
-      //     this.toastr.success('Thành công!', 'Cập nhật sản phẩm');
-      //     this.loadAll();
-      //   });
-      // }
-      // if (data && !id) {
-      //   data.id = this.servicePublic.Makeid(12);
-      //   this.coffeeService.addProduct(data).subscribe((result) => {
-      //     this.toastr.success('Thành công!', 'Tạo sản phẩm!');
-      //     this.loadAll();
-      //   });
-      // }
+      if (id && data) {
+        this.coffeeService.updateProduct(data).subscribe((result) => {
+          this.toastr.success('Thành công!', 'Cập nhật sản phẩm');
+          this.loadAll();
+        });
+      }
+      if (data && !id) {
+        data.id = this.servicePublic.Makeid(12);
+        this.coffeeService.addProduct(data).subscribe((result) => {
+          this.toastr.success('Thành công!', 'Tạo sản phẩm!');
+          this.loadAll();
+        });
+      }
     });
   }
   handlSearch(value: any) {

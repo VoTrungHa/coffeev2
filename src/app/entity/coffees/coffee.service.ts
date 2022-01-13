@@ -34,6 +34,14 @@ export class CoffeeService {
         catchError(this.handleError<any>('updateProduct'))
       );
   }
+
+  getProductById(id: string): Observable<PRODUCT> {
+    return this.http.get<PRODUCT>('api/products/' + id).pipe(
+      tap((_) => console.log(`fetched product id=${id}`)),
+      catchError(this.handleError<PRODUCT>(`getProduct id=${id}`))
+    );
+  }
+
   addProduct(product: PRODUCT): Observable<PRODUCT> {
     return this.http
       .post<PRODUCT>('api/products', product, this.optionHeader)

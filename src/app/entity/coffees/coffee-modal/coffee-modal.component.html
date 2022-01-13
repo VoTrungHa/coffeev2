@@ -4,67 +4,140 @@
   </div>
   <div class="mod-modal-body">
     <form [formGroup]="ProductForm">
-      <div class="form-group">
+      <div *ngIf="image" class="text-center avatar">
+        <img [src]="image.value" width="100%" height="100%" [alt]="'logo'" />
+      </div>
+      <div class="form-group mt-15">
         <label class="form-label" for="name">Name</label>
         <div class="form-control-input">
           <input
             type="text"
             class="forminput"
-            formControlName="email"
+            formControlName="name"
             placeholder="Tên sản phẩm"
             required
           />
           <div *ngIf="name?.errors && isValidator" class="alert alert-danger">
-            <div *ngIf="name?.errors?.['required']">Địa chỉ name còn trống</div>
-            <div *ngIf="name?.errors?.['name']">Địa chi name không hợp lệ</div>
+            <div *ngIf="name?.errors?.['required']">Tên sản còn trống</div>
           </div>
         </div>
       </div>
       <div class="form-group mt-15">
         <label class="form-label">Category</label>
         <div class="form-control-input">
-          <select ng-model="data.category" class="forminput" required>
+          <select formControlName="category" class="forminput">
             <option value="">Chọn loại sản phẩm</option>
             <option *ngFor="let item of Categorys" value="{{ item }}">
               {{ item }}
             </option>
           </select>
+          <div
+            *ngIf="category?.errors && isValidator"
+            class="alert alert-danger"
+          >
+            <div *ngIf="category?.errors?.['required']">Mô tả còn trống</div>
+          </div>
         </div>
       </div>
 
-      <div class="form-group mt-15">
+      <div class="form-group mt-15" formArrayName="attributes">
         <label class="form-label">Attributes</label>
-        <div class="gap-8 d-flex form-control-input">
-          <div>
-            <select ng-model="data.category" class="forminput" required>
-              <option value="">Chọn loại sản phẩm</option>
-              <option *ngFor="let item of Categorys" value="{{ item }}">
-                {{ item }}
-              </option>
-            </select>
-          </div>
-          <div>
-            <input
-              type="text"
-              class="forminput"
-              formControlName="email"
-              placeholder="Tên sản phẩm"
-              required
-            />
-          </div>
-          <div>
-            <button class="button bg-remove">
-              <span
-                class="iconify"
-                data-icon="bpmn:trash"
-                style="color: white"
-                data-width="18"
-                data-height="18"
-              ></span>
-            </button>
+        <div class="w-100">
+          <div
+            class="gap-8 mt-15 d-flex form-control-input"
+            *ngFor="let attr of attributes.controls; let i = index"
+            [formGroupName]="i"
+          >
+            <div class="w-100">
+              <select formControlName="size" class="forminput" required>
+                <option value="">Kích thước</option>
+                <option
+                  *ngFor="let item of Sizes; let i = index"
+                  value="{{ item }}"
+                >
+                  {{ item }}
+                </option>
+              </select>
+            </div>
+            <div class="w-100">
+              <input
+                type="text"
+                class="forminput"
+                formControlName="price"
+                placeholder="Giá thành"
+                required
+              />
+              <div
+                *ngIf="descript?.errors && isValidator"
+                class="alert alert-danger"
+              >
+                <div *ngIf="descript?.errors?.['required']">
+                  Mô tả còn trống
+                </div>
+              </div>
+            </div>
+            <div *ngIf="attributes.length > 1">
+              <button class="button bg-remove" (click)="deleteAttr(i)">
+                <span
+                  class="iconify"
+                  data-icon="bpmn:trash"
+                  style="color: white"
+                  data-width="18"
+                  data-height="18"
+                ></span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
+      <div class="d-flex flex-end mt-15">
+        <button class="bg-second button" (click)="addAttr()">
+          <span
+            class="iconify"
+            data-icon="fluent:add-circle-16-filled"
+            style="color: white"
+            data-width="25"
+            data-height="25"
+          ></span
+          >Add
+        </button>
+      </div>
+      <div class="form-group mt-15">
+        <label class="form-label" for="name">description</label>
+        <div class="form-control-input">
+          <textarea
+            type="text"
+            cols="2"
+            class="forminput"
+            formControlName="descript"
+            placeholder="Mô tả"
+          ></textarea>
+          <div
+            *ngIf="descript?.errors && isValidator"
+            class="alert alert-danger"
+          >
+            <div *ngIf="descript?.errors?.['required']">Mô tả còn trống</div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group mt-15">
+        <label class="form-label" for="name">Image</label>
+        <div class="form-control-input">
+          <input
+            type="text"
+            class="forminput"
+            formControlName="image"
+            placeholder="Tên sản phẩm"
+            required
+          />
+          <div *ngIf="image?.errors && isValidator" class="alert alert-danger">
+            <div *ngIf="image?.errors?.['required']">
+              Ảnh của sản phẩm còn trống
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div class="form-group d-flex flex-end mt-15">
         <button class="button bg-remove" type="button" (click)="close()">
           Cancel

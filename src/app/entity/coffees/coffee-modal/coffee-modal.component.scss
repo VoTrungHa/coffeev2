@@ -1,18 +1,10 @@
 .mod-modal {
   width: 500px;
-  max-height: 400px;
-  overflow-x: hidden;
-  box-sizing: padding-box;
-  ::-webkit-scrollbar {
-    width: 7px;
-  }
-  ::-webkit-scrollbar-thumb {
-    background: rgb(221, 221, 221);
-    border-radius: 10px;
-  }
+  height: 350px;
   &-title {
     background-color: rgba(253, 160, 38, 0.96);
     padding: 0.5rem 1rem;
+
     h2 {
       font-family: NotoSerif;
       font-weight: 600;
@@ -20,5 +12,6 @@
   }
   &-body {
     padding: 1rem 1.5rem;
+    overflow-y: auto;
   }
 }
