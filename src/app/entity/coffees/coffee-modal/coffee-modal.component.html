@@ -4,8 +4,8 @@
   </div>
   <div class="mod-modal-body">
     <form [formGroup]="ProductForm">
-      <div *ngIf="image" class="text-center avatar">
-        <img [src]="image.value" width="100%" height="100%" [alt]="'logo'" />
+      <div *ngIf="image?.value !== ''" class="text-center avatar">
+        <img [src]="image?.value" width="100%" height="100%" [alt]="'logo'" />
       </div>
       <div class="form-group mt-15">
         <label class="form-label" for="name">Name</label>
@@ -58,6 +58,14 @@
                   {{ item }}
                 </option>
               </select>
+              <div
+                *ngIf="attr.get('size')?.errors && isValidator"
+                class="alert alert-danger"
+              >
+                <div *ngIf="attr.get('size')?.errors?.['required']">
+                  Chọn kịch thước sản phẩm
+                </div>
+              </div>
             </div>
             <div class="w-100">
               <input
@@ -68,11 +76,11 @@
                 required
               />
               <div
-                *ngIf="descript?.errors && isValidator"
+                *ngIf="attr.get('price')?.errors && isValidator"
                 class="alert alert-danger"
               >
-                <div *ngIf="descript?.errors?.['required']">
-                  Mô tả còn trống
+                <div *ngIf="attr.get('price')?.errors?.['required']">
+                  Giá thành còn trống
                 </div>
               </div>
             </div>
@@ -142,7 +150,20 @@
         <button class="button bg-remove" type="button" (click)="close()">
           Cancel
         </button>
-        <button class="button bg-second" (click)="save()">Ok</button>
+        <button
+          class="button bg-second"
+          (click)="
+            name?.errors ||
+            category?.errors ||
+            descript?.errors ||
+            image?.errors ||
+            ProductForm.get('attributes')?.status === 'INVALID'
+              ? setValidator()
+              : save()
+          "
+        >
+          Ok
+        </button>
       </div>
     </form>
   </div>

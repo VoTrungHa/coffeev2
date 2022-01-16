@@ -1,8 +1,10 @@
 <div class="mod-main">
-  <app-header></app-header>
-  <app-slider></app-slider>
+  <div *ngIf="isLogin">
+    <app-header></app-header>
+    <app-slider></app-slider>
+  </div>
 
-  <div class="mod-main-body">
+  <div [ngClass]="isLogin ? 'mod-main-body' : 'mod-guard'">
     <router-outlet></router-outlet>
   </div>
 </div>

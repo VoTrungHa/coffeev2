@@ -1,6 +1,7 @@
 .mod-main {
   display: block;
   position: relative;
+
   &-body {
     position: absolute;
     margin-bottom: 350px;
@@ -11,4 +12,10 @@
     width: calc(100% - 120px);
     min-height: 100%;
   }
+}
+.mod-guard {
+  width: 100vw;
+  height: 100vh;
+  display: block;
+  position: relative;
 }

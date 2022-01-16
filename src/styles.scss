@@ -21,6 +21,12 @@ p {
   padding: 0;
   margin-bottom: 0 !important;
 }
+.link {
+  &:hover {
+    color: rgb(166, 204, 247);
+    text-decoration: underline;
+  }
+}
 .mat-dialog-container {
   padding: 0 !important;
 }

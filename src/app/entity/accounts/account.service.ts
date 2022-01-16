@@ -13,7 +13,7 @@ export class AccountService {
 
   getAccounts(): Observable<ACCOUNT[]> {
     return this.http.get<ACCOUNT[]>('api/accounts').pipe(
-      tap((_) => console.log('fetched heroes')),
+      tap((_) => console.log('fetched accounts')),
       catchError(this.handleError<ACCOUNT[]>('getAccounts', []))
     );
   }

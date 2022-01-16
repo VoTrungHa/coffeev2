@@ -1,0 +1,62 @@
+<div class="mod-login">
+  <h2 class="headline size-1 text-center">THE COFFEE</h2>
+  <p class="size-4 mt-15 text-center">Đăng nhập</p>
+  <form>
+    <div class="form-group mt-15">
+      <div class="form-control-input">
+        <input
+          type="email"
+          class="forminput"
+          name="email"
+          [(ngModel)]="account.email"
+          #email="ngModel"
+          placeholder="example@gmail.com"
+          required
+          email
+        />
+        <div
+          *ngIf="email?.errors && isValidator"
+          class="alert size-5 alert-danger"
+        >
+          <div *ngIf="email?.errors?.['required']">Địa chỉ email còn trống</div>
+          <div *ngIf="email?.errors?.['email']">
+            Địa chỉ email không hợp lệ!
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group mt-15">
+      <div class="form-control-input">
+        <input
+          type="password"
+          class="forminput"
+          placeholder="**********"
+          required
+          name="password"
+          [(ngModel)]="account.password"
+          #password="ngModel"
+        />
+
+        <div
+          *ngIf="password?.errors && isValidator"
+          class="alert size-5 alert-danger"
+        >
+          <div *ngIf="password?.errors?.['required']">Mật khẩu còn trống</div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group flex-center mt-15">
+      <button
+        class="button bg-default"
+        (click)="email.errors || password.errors ? setIsvalidator() : login()"
+      >
+        Đăng nhập
+      </button>
+    </div>
+    <div class="form-group flex-center mt-15">
+      <a routerLink="/register" class="size-5 cursor link" title="tạo tài khoản"
+        >Tạo tài khoản</a
+      >
+    </div>
+  </form>
+</div>

@@ -89,6 +89,9 @@ export class CoffeeModalComponent implements OnInit {
   deleteAttr(index: number) {
     this.attributes.removeAt(index);
   }
+  setValidator() {
+    this.isValidator = true;
+  }
   save() {
     console.log(this.ProductForm.value);
     this.dialogRef.close(this.ProductForm.value);
