@@ -1,17 +1,22 @@
-.mod-modal {
-  width: 500px;
-  height: 350px;
-  &-title {
-    background-color: rgba(253, 160, 38, 0.96);
-    padding: 0.5rem 1rem;
-
-    h2 {
-      font-family: NotoSerif;
-      font-weight: 600;
-    }
+ 
+.mod-coffe{
+  width: 500px; 
+  position: relative;
+  &-title{
+    background-color:rgba(253, 160, 38, 0.96); 
+    padding:0.5rem 1rem;
   }
-  &-body {
-    padding: 1rem 1.5rem;
+  &-body{
+    display:block;
+    position: relative;
+    padding:0.5rem 1rem;
+    max-height: 450px;
     overflow-y: auto;
+  }
+  &-action{
+    position: inherit;
+    padding:0.5rem 1rem;
+    bottom: 0;
+    left: 0;
   }
 }

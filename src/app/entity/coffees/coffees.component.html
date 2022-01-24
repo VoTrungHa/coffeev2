@@ -3,6 +3,8 @@
     (modal)="openDialog($event)"
     (search)="handlSearch($event)"
     [title]="'PRODUCT MANAGEMENT'"
+    (delete)="handlDeleteMultiple()"
+    [params]="params"
   ></app-search>
   <div class="mod-coffee-body">
     <app-apptable

@@ -11,21 +11,30 @@
       <span
         class="iconify iconserch"
         data-icon="bytesize:search"
-        style="color: dimgray"
+        style="color: dimgray;"
         data-width="23"
         data-height="23"
       ></span>
     </form>
 
     <button class="button bg-second" (click)="OpenModalAdd()">Add</button>
+    <button class="button bg-remove" (click)="OpenModalDelete()">
+      <span
+        class="iconify"
+        data-icon="fluent:delete-28-filled"
+        data-width="20"
+        data-height="20"
+      ></span>
+    </button>
+
     <button
-      class="button bg-remove"
+      class="button bg-default"
       (click)="valueSearch.value = ''; handlSearch('')"
     >
       <span
         class="iconify"
         data-icon="ic:round-restart-alt"
-        style="color: white"
+        style="color: white;"
         data-width="25"
         data-height="25"
       ></span>

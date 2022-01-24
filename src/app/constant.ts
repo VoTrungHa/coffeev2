@@ -1,4 +1,5 @@
 export const CONTENTS_LIST_HEADER_ACC = [
+  { name: 'Checkbox', width: '20px' },
   { name: 'Name', width: '140px', key: 'nickName' },
   { name: 'Gender', width: '140px', key: 'gender' },
   { name: 'Role', width: '140px', key: 'role' },
@@ -7,6 +8,7 @@ export const CONTENTS_LIST_HEADER_ACC = [
 ];
 
 export const CONTENTS_LIST_HEADER_PRO = [
+  { name: 'Checkbox', width: '20px' },
   { name: 'Name', width: '140px', key: 'name' },
   { name: 'Image', width: '140px', key: 'image' },
   { name: 'Category', width: '120px', key: 'category' },

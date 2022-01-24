@@ -17,6 +17,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { LoginComponent } from './core/login/login.component';
 import { RegisterComponent } from './core/register/register.component';
 import { NgxWebstorageModule } from 'ngx-webstorage';
+import { NgxUiLoaderModule } from 'ngx-ui-loader';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { NgxWebstorageModule } from 'ngx-webstorage';
     BrowserModule,
     NgbModule,
     AppRoutingModule,
+    NgxUiLoaderModule,
     NgxWebstorageModule.forRoot(),
     FontAwesomeModule,
     FormsModule,

@@ -9,10 +9,14 @@ export class SearchComponent implements OnInit {
   @Output() search = new EventEmitter();
   @Output() modal = new EventEmitter();
   @Input() title!: string;
+  @Output() delete=new EventEmitter();
+  @Input() params:any;
   valueSearch: string = '';
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log(this.title)
+  }
 
   handlSearch(value: string) {
     this.search.emit(value);
@@ -20,5 +24,9 @@ export class SearchComponent implements OnInit {
 
   OpenModalAdd() {
     this.modal.emit(null);
+  }
+
+  OpenModalDelete(){
+    this.delete.emit();
   }
 }

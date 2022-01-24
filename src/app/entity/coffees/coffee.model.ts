@@ -6,6 +6,7 @@ export interface PRODUCT {
   attributes: Array<attribute>;
   descript: string;
   size?: string;
+  completed?:boolean;
 }
 
 export interface attribute {
@@ -16,5 +17,5 @@ export interface attribute {
 export interface CONTENTS_LIST_WIDTH {
   name: string;
   width: string;
-  key: string;
+  key?: string;
 }

@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { ACCOUNT } from '../account.model';
 import { AccountService } from '../account.service';
 
 @Component({
@@ -12,8 +13,9 @@ export class AccountModalComponent implements OnInit {
   AccountForm!: FormGroup;
   ROLES: Array<string> = ['USER', 'ADMIN'];
   isValidator: boolean = false;
+ 
   constructor(
-    @Inject(MAT_DIALOG_DATA) public data: { title: string; id: string },
+    @Inject(MAT_DIALOG_DATA) public data: { title: string; account: ACCOUNT },
     private dialogRef: MatDialogRef<AccountModalComponent>,
     private accountService: AccountService
   ) {
@@ -27,15 +29,16 @@ export class AccountModalComponent implements OnInit {
     });
   }
   ngOnInit(): void {
-    if (this.data.id) {
-      this.accountService.getAccountById(this.data.id).subscribe((data) => {
-        this.AccountForm.get('nickName')?.setValue(data.nickName);
-        this.AccountForm.get('id')?.setValue(data.id);
-        this.AccountForm.get('role')?.setValue(data.role);
-        this.AccountForm.get('phone')?.setValue(data.phone);
-        this.AccountForm.get('gender')?.setValue(data.gender);
-        this.AccountForm.get('email')?.setValue(data.email);
-      });
+    if (this.data.account) {
+      
+        this.AccountForm.get('nickName')?.setValue(this.data.account.nickName);
+        this.AccountForm.get('id')?.setValue(this.data.account.id);
+        this.AccountForm.get('role')?.setValue(this.data.account.role);
+        this.AccountForm.get('phone')?.setValue(this.data.account.phone);
+        this.AccountForm.get('gender')?.setValue(this.data.account.gender);
+        this.AccountForm.get('email')?.setValue(this.data.account.email);
+        
+      
     }
   }
 

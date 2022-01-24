@@ -1,9 +1,10 @@
 <div class="mod-main">
+  <ngx-ui-loader class="center-center" textPosition="center-center" [hasProgressBar]="false"  >
+  </ngx-ui-loader>
   <div *ngIf="isLogin">
     <app-header></app-header>
     <app-slider></app-slider>
   </div>
-
   <div [ngClass]="isLogin ? 'mod-main-body' : 'mod-guard'">
     <router-outlet></router-outlet>
   </div>

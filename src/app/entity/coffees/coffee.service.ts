@@ -18,7 +18,7 @@ export class CoffeeService {
     );
   }
 
-  deleteProduct(id: number): Observable<PRODUCT> {
+  deleteProduct(id: string): Observable<PRODUCT> {
     return this.http
       .delete<PRODUCT>(`api/products/` + id, this.optionHeader)
       .pipe(

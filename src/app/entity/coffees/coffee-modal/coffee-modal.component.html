@@ -1,9 +1,10 @@
-<div class="mod-modal">
-  <div class="mod-modal-title">
-    <h2>{{ data.title }}</h2>
+<div class="mod-coffe">
+  <div class="mod-coffe-title">
+    <h2 class="headline size-2">{{ data.title }}</h2>
   </div>
-  <div class="mod-modal-body">
-    <form [formGroup]="ProductForm">
+
+  <form [formGroup]="ProductForm">
+    <div class="mod-coffe-body">
       <div *ngIf="image?.value !== ''" class="text-center avatar">
         <img [src]="image?.value" width="100%" height="100%" [alt]="'logo'" />
       </div>
@@ -89,7 +90,7 @@
                 <span
                   class="iconify"
                   data-icon="bpmn:trash"
-                  style="color: white"
+                  style="color: white;"
                   data-width="18"
                   data-height="18"
                 ></span>
@@ -103,7 +104,7 @@
           <span
             class="iconify"
             data-icon="fluent:add-circle-16-filled"
-            style="color: white"
+            style="color: white;"
             data-width="25"
             data-height="25"
           ></span
@@ -145,14 +146,14 @@
           </div>
         </div>
       </div>
-
-      <div class="form-group d-flex flex-end mt-15">
-        <button class="button bg-remove" type="button" (click)="close()">
-          Cancel
-        </button>
-        <button
-          class="button bg-second"
-          (click)="
+    </div>
+    <div class="form-group d-flex mod-coffe-action flex-end mt-15">
+      <button class="button bg-remove" type="button" (click)="close()">
+        Cancel
+      </button>
+      <button
+        class="button bg-second"
+        (click)="
             name?.errors ||
             category?.errors ||
             descript?.errors ||
@@ -161,10 +162,9 @@
               ? setValidator()
               : save()
           "
-        >
-          Ok
-        </button>
-      </div>
-    </form>
-  </div>
+      >
+        Ok
+      </button>
+    </div>
+  </form>
 </div>

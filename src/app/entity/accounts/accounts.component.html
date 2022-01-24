@@ -1,9 +1,12 @@
 <div class="mod-account">
+   
   <app-search
     (modal)="openDialog($event)"
     (search)="handlSearch($event)"
     [title]="'ACCOUNT MANAGEMENT'"
+    (delete)="handlDeleteMultiple()"
   ></app-search>
+   
   <div class="mod-account-body">
     <app-apptable
       [data]="Accounts"
@@ -13,6 +16,7 @@
       (sortAll)="sortAll($event)"
       [CONTENTS_LIST_WIDTH]="CONTENTS_LIST_WIDTH"
       (delete)="handlDeleteAccount($event)"
+       
     ></app-apptable>
   </div>
 </div>

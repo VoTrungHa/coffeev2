@@ -7,10 +7,11 @@ export interface ACCOUNT {
   password: string;
   phone: string;
   role: string;
+  completed?:boolean;
 }
 
 export interface CONTENTS_LIST_WIDTH {
   name: string;
   width: string;
-  key: string;
+  key?: string;
 }
